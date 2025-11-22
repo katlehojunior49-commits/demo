@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+  <h2>Register</h2>
+  <form method="post" novalidate>
+    {{ form.hidden_tag() }}
+
+    <div>
+      {{ form.username.label }}
+      {{ form.username(placeholder='Choose a username') }}
+      {% for error in form.username.errors %}
+        <small class="error">{{ error }}</small>
+      {% endfor %}
+    </div>
+
+    <div>
+      {{ form.email.label }}
+      {{ form.email(placeholder='you@example.com') }}
+      {% for error in form.email.errors %}
+        <small class="error">{{ error }}</small>
+      {% endfor %}
+    </div>
+
+    <div>
+      {{ form.password.label }}
+      {{ form.password() }}
+      {% for error in form.password.errors %}
+        <small class="error">{{ error }}</small>
+      {% endfor %}
+    </div>
+
+    <div>
+      {{ form.confirm.label }}
+      {{ form.confirm() }}
+      {% for error in form.confirm.errors %}
+        <small class="error">{{ error }}</small>
+      {% endfor %}
+    </div>
+
+    <div>
+      {{ form.full_name.label }}
+      {{ form.full_name(placeholder='Optional full name') }}
+      {% for error in form.full_name.errors %}
+        <small class="error">{{ error }}</small>
+      {% endfor %}
+    </div>
+
+    <div>
+      {{ form.bio.label }}
+      {{ form.bio(rows=4, placeholder='Tell us something about you') }}
+      {% for error in form.bio.errors %}
+        <small class="error">{{ error }}</small>
+      {% endfor %}
+    </div>
+
+    <div>
+      {{ form.submit(class_='primary') }}
+    </div>
+  </form>
+
+  <p>Already have an account? <a href="{{ url_for('main.login') }}">Log in</a>.</p>
+{% endblock %}

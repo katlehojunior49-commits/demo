@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+  <h2>Registered Users</h2>
+  {% if users %}
+    <ul>
+      {% for u in users %}
+        <li>
+          <a href="{{ url_for('main.profile', user_id=u.id) }}">{{ u.username }}</a>
+          - {{ u.email }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No users yet. <a href="{{ url_for('main.register') }}">Register one</a>.</p>
+  {% endif %}
+{% endblock %}

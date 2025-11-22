@@ -1,0 +1,19 @@
+/* Simple, minimal stylesheet to improve readability */
+body {
+  font-family: system-ui, sans-serif;
+  padding: 1rem;
+}
+header {
+  margin-bottom: 1rem;
+}
+.card.success { background: #e6ffed; padding: .5rem; border-left: 4px solid #28a745; }
+.card.warning { background: #fff8e6; padding: .5rem; border-left: 4px solid #ffc107; }
+.card.danger { background: #ffe6e6; padding: .5rem; border-left: 4px solid #dc3545; }
+.card.info { background: #e6f0ff; padding: .5rem; border-left: 4px solid #0d6efd; }
+
+form > div { margin-bottom: .75rem; }
+.error {
+  color: #dc3545;
+  display: block;
+  font-size: 0.85rem;
+}
