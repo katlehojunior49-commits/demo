@@ -1,0 +1,11 @@
+I selected Render as the hosting platform for deploying the Flask application. Render provides an easy and reliable environment for Python web apps, supports automatic deployments through GitHub integration, and offers a free tier suitable for student or small-scale projects.
+Additional reasons for choosing Render include:
+
+No credit card required for deployment
+
+Automatic build and deploy on every Git push
+
+Built-in logging and service monitoring
+
+Straightforward configuration using a Procfile and requirements.txt
+

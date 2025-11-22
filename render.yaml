@@ -1,0 +1,33 @@
+# Optional Render manifest: defines a Web Service and a managed Postgres database.
+# Edit values (service name, plan, repo, branch) before use. This is a template
+# you can commit so Render automatically configures the service from the repo.
+
+services:
+  - type: web
+    name: formative-web
+    env: python
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn "app:create_app()" -b 0.0.0.0:$PORT
+
+databases:
+  - name: formative-db
+    type: postgres
+    plan: starter
+    version: 14
+services:
+  - type: web
+    name: formative-app
+    env: python
+    plan: free
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn "app:create_app()" -b 0.0.0.0:$PORT
+    autoDeploy: true
+    envVars:
+      - key: FLASK_SECRET
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+
